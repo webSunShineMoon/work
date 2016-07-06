@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"> 
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection"> 
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<title>讨论</title>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				<a href="#" class="circle"><i class="fa fa-plus-circle"></i></a>
+				<h2>讨论</h2>
+				<a href="#" class="envelope"><i class="fa fa-envelope-o"></i></a>
+			</header>
+			<section class="section">
+				<div class="banner" style="margin-bottom:12px;">
+						<div class="swiper-container" id="swiper-container">
+						    <div class="swiper-wrapper">
+						        <div class="swiper-slide"><img src="img/talk_banner_02.png" alt="" /></div>
+						        <div class="swiper-slide"><img src="img/talk_banner_02.png" alt="" /></div>
+						        <div class="swiper-slide"><img src="img/talk_banner_02.png" alt="" /></div>
+						    </div>
+	    					<!-- 如果需要分页器 -->
+	    					<div class="swiper-pagination"></div>
+					 </div>
+				</div>
+				<div class="listDl">
+					<dl>
+						<dt><img src="img/dl_icon_03.png" alt="" /></dt>
+						<dd>餐桌美食</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/dl_icon_05.png" alt="" /></dt>
+						<dd>玩转烘焙</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/dl_icon_07.png" alt="" /></dt>
+						<dd>美食课堂</dd>
+					</dl>
+					<dl>
+						<dt><img src="img/dl_icon_09.png" alt="" /></dt>
+						<dd>最新活动</dd>
+					</dl>
+				</div>
+				<div class="tabCon">
+					<ul class="Tab">
+						<li class="on"><a href="#">最新</a></li>
+						<li><a href="#">排行榜</a></li>
+					</ul>
+					<div class="sunContent" id="container">
+						<div>
+							<div class="userMain">
+							<h2><span><img src="img/user_icon_03.png" alt="" /></span>美食小编</h2>
+							<p>在提升气质与文化修养的这件事儿上市绝对不能放松的，所以本小编又给大家某“文化”……</p>
+							<div class="picDl">
+								<dl>
+									<dt><img src="img/pic_dlcon_03.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_05.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_07.png" alt="" /></dt>
+								</dl>
+								<dl>
+									<dt><img src="img/pic_dlcon_03.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_05.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_07.png" alt="" /></dt>
+								</dl>
+							</div>
+						</div>
+						
+						<div class="userMain" style="display:none">
+							<h2><span><img src="img/user_icon_03.png" alt="" /></span>感觉不到你憔悴的心</h2>
+							<p>某天，我和你诉说着曾经的美好，看遍万水千山的景色，回眸一下看到你依稀在外面等我，微笑的那么美好，开心的如此忘怀。…</p>
+							<div class="picDl">
+								<dl>
+									<dt><img src="img/pic_dlcon_03.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_05.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_07.png" alt="" /></dt>
+								</dl>
+								<dl>
+									<dt><img src="img/pic_dlcon_03.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_05.png" alt="" /></dt>
+									<dt><img src="img/pic_dlcon_07.png" alt="" /></dt>
+								</dl>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer class="footer">
+				<ul>
+					<li><a href="tuijian.html"><img src="img/pic_list_11.gif" alt=""></a><small class="on">推荐</small></li>
+					<li><a href="find.html"><img src="img/pic_list_13.gif" alt=""></a><small>发现</small></li>
+					<li><a href="city.html"><img src="img/pic_list_15.gif" alt=""></a><small>商店</small></li>
+					<li><a href="talk.html"><img src="img/pic_list_17.gif" alt=""></a><small>讨论</small></li>
+					<li><a href="my.html"><img src="img/pic_list_19.png" alt=""></a><small>我的</small></li>
+				</ul>
+			</footer>
+		</div>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/iscroll4.js"></script>
+	<script src="js/setfontsize.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script>
+		var menuPage=new iScroll("container",{
+				onBeforeScrollStart:function(e){
+					var tagName=e.target.nodeName.toLowerCase();
+					if(tagName!="input" && tagName!="select" && tagName!="textarea" && tagName!="a"){
+						e.preventDefault();	
+					}		
+				}
+			})
+		var mySwiper = new Swiper ('.swiper-container', {
+		    loop: true,
+		    autoplay: 1000,//可选选项，自动滑动
+		    // 如果需要分页器
+		    pagination: '.swiper-pagination',
+	  })
+		function init(){
+			$(".Tab li").on("click",function(){
+				var index = $(this).index();
+				$(this).addClass("on").siblings().removeClass("on");
+				$(".userMain").eq(index).show().siblings().hide();
+			})
+		}
+		init();
+	</script>
+	</body>
+</html>

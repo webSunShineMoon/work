@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"> 
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection"> 
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<title>积分商城</title>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				<h2>积分商城</h2>
+				<a class="back" href="#"><i class="fa fa-angle-left"></i></a>
+			</header>
+			<section class="section" style="background: #f7f7f9">
+				<div class="banner">
+						<div class="swiper-container" id="swiper-container">
+						    <div class="swiper-wrapper">
+						        <div class="swiper-slide"><img src="img/banner_pic_02.png" alt="" /></div>
+						        <div class="swiper-slide"><img src="img/banner_pic_02.png" alt="" /></div>
+						        <div class="swiper-slide"><img src="img/banner_pic_02.png" alt="" /></div>
+						    </div>
+	    					<!-- 如果需要分页器 -->
+	    					<div class="swiper-pagination"></div>
+					 </div>
+				</div>
+				<div class="shop">
+					<div class="nav">
+						<ul>
+							<li>
+								<span class="fa fa-yen"></span>
+								<a href="#">积分220</a>
+							</li>
+							<li>
+								<span class="fa fa-file-text-o"></span>
+								<a href="#">兑换记录</a>
+							</li>
+						</ul>
+					</div>
+					<div class="tuNav">
+						<ul>
+							<li>
+								<a href="#"><img src="img/city_mark_03.png" alt="" /></a>
+								<small>优惠券</small>
+							</li>
+							<li>
+								<a href="#"><img src="img/city_mark_05.png" alt="" /></a>
+								<small>实物</small>
+							</li>
+							<li>
+								<a href="#"><img src="img/city_mark_07.png" alt="" /></a>
+								<small>所有兑换奖项</small>
+							</li>
+							<li>
+								<a href="#"><img src="img/city_mark_09.png" alt="" /></a>
+								<small>抽奖活动</small>
+							</li>
+						</ul>
+					</div>
+					<div class="ListPic">
+						<h2>大家都在兑</h2>
+						<div class="PicDl" id="container">
+							<div class="dlBox">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/iscroll4.js"></script>
+	<script src="js/setfontsize.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/handlebars.js"></script>
+	<script id="moban" type="text/x-handlebars-template">
+		{{#each this.city_list}}
+			<dl>
+				<dt><img src="{{img}}" alt="" /></dt>
+				<dd>
+					<h3>{{h2_title}}</h3>
+					<span>{{span_tle}}</span>
+				</dd>
+			</dl>
+		{{/each}}
+	</script>
+	<script>
+		$(function(){
+			$.ajax({
+				url:"webshop.json",
+				type:"post",
+				dataType:"json",
+				success:function(data) {
+					console.log(data);
+					var ohtml=$('#moban').html();
+					    moban=Handlebars.compile(ohtml);
+					    $('.dlBox').html(moban(data));
+				},
+				error:function() {
+					alert('错啦');
+				}
+			});
+			
+			var mySwiper = new Swiper ('.swiper-container', {
+		    loop: true,
+		    autoplay: 1000,//可选选项，自动滑动
+		    // 如果需要分页器
+		    pagination: '.swiper-pagination',
+	  })
+		
+		var menuPage=new iScroll("container",{
+				onBeforeScrollStart:function(e){
+					var tagName=e.target.nodeName.toLowerCase();
+					if(tagName!="input" && tagName!="select" && tagName!="textarea" && tagName!="a"){
+						e.preventDefault();	
+					}		
+				}
+			})
+		})
+	</script>
+	</body>
+</html>

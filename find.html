@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"> 
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection"> 
+	<meta content="email=no" name="format-detection">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css" />
+	<title>发现最热门</title>
+</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				<h2>发现最热门</h2>
+				<a class="envelope" href="#"><i class="fa fa-envelope-o"></i></a>
+			</header>
+			<section class="section" id="container">
+				<div>
+					<div class="hotList">
+						<div class="green">
+							<!--<h2>食材</h2>
+							<p>选择适合自己的口味才是最好的</p>-->
+						</div>
+						<div class="yellow">
+							<!--<h2>菜单</h2>
+							<p>找到一个可以适合自己口味的菜单</p>-->
+						</div>
+						<div class="grape">
+							<!--<h2>专题</h2>
+							<p>关于美食的专题</p>-->
+						</div>
+						<div class="pink">
+							<!--<h2>文章</h2>
+							<p>饮食健康攻略尽情享受美食</p>-->
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer class="footer">
+				<ul>
+					<li><a href="tuijian.html"><img src="img/pic_list_11.gif" alt=""></a><small class="on">推荐</small></li>
+					<li><a href="find.html"><img src="img/pic_list_13.gif" alt=""></a><small>发现</small></li>
+					<li><a href="city.html"><img src="img/pic_list_15.gif" alt=""></a><small>商店</small></li>
+					<li><a href="talk.html"><img src="img/pic_list_17.gif" alt=""></a><small>讨论</small></li>
+					<li><a href="my.html"><img src="img/pic_list_19.png" alt=""></a><small>我的</small></li>
+				</ul>
+			</footer>				
+		</div>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/iscroll4.js"></script>
+		<script src="js/setfontsize.js"></script>
+		
+		<script>
+			init ();
+			var menuPage=new iScroll("container",{
+				onBeforeScrollStart:function(e){
+					var tagName=e.target.nodeName.toLowerCase();
+					if(tagName!="input" && tagName!="select" && tagName!="textarea" && tagName!="a"){
+						e.preventDefault();	
+					}		
+				}
+			})
+			function init (){
+				var str = "",str1="",str2="",str3="";
+					$.ajax({
+					url:"find.json",
+					type :"post",
+					dataType :"json",
+					async:true,
+					success:function(data){
+						//console.log(data.find_list[1]);
+							str+='<div class="green">'+
+							'<h2>'+data.find_list[0].title+
+							'</h2>'+
+							'<p>'+data.find_list[0].p_phar+
+							'</p>'+
+						'</div>'
+						$(".green").html(str);
+						
+						
+						str1+='<div class="yellow">'+
+							'<h2>'+data.find_list[1].title+
+							'</h2>'+
+							'<p>'+data.find_list[1].p_phar+
+							'</p>'+
+						'</div>'
+						$(".yellow").html(str1);
+						
+						
+						str2+='<div class="grape">'+
+							'<h2>'+data.find_list[2].title+
+							'</h2>'+
+							'<p>'+data.find_list[2].p_phar+
+							'</p>'+
+						'</div>'
+						$(".grape").html(str2);
+						
+						
+						str3+='<div class="pink">'+
+							'<h2>'+data.find_list[3].title+
+							'</h2>'+
+							'<p>'+data.find_list[3].p_phar+
+							'</p>'+
+						'</div>'
+						$(".pink").html(str3);	
+					},
+					error:function(){
+						alert("数据加载失败");
+					}
+
+				})
+			}
+			
+
+	</script>
+	</body>
+</html>

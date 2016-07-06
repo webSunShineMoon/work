@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"> 
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection"> 
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<title>登录</title>
+	</head>
+	<body>
+			<div class="wrap">
+				<div class="top">
+					<div class="userMan">
+						<a href="myself_message.html"><img src="img/login_icon_03.png" alt="" /></a>
+					</div>
+					<div class="buttonGroup">
+						<a href="login.html">登录</a>
+						<a href="#">注册</a>
+					</div>
+					<nav class="nav">
+						<ul>
+							<li>
+								<a href="#">0</a>
+								<small>关注</small>
+							</li>
+							<li>
+								<a href="#">0</a>
+								<small>粉丝</small>
+							</li>
+							<li>
+								<a href="#">0</a>
+								<small>菜谱</small>
+							</li>
+							<li>
+								<a href="#">0</a>
+								<small>积分商城</small>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<section class="section" id="container">
+					<div>
+						<div class="icon">
+							<dl>
+								<dt><img src="img/user-icon_07.png" alt="" /></dt>
+								<dd>我的发布</dd>
+							</dl>
+							<dl>
+								<dt><img src="img/user-icon_09.png" alt="" /></dt>
+								<dd>站内信</dd>
+							</dl>
+							<dl>
+								<dt><img src="img/user-icon_11.png" alt="" /></dt>
+								<dd>我的收藏</dd>
+							</dl>
+							<dl>
+								<dt><img src="img/my_icon_03.png" alt="" /></dt>
+								<dd>草稿箱</dd>
+							</dl>
+				    	</div>
+					    <div class="icon">
+							<dl>
+								<dt><img src="img/user-icon_19.png" alt="" /></dt>
+								<dd>我的发布</dd>
+							</dl>
+							<dl>
+								<dt><img src="img/user-icon_20.png" alt="" /></dt>
+								<dd>站内信</dd>
+							</dl>
+							<dl>
+								<dt><img src="img/user-icon_21.png" alt="" /></dt>
+								<dd>我的收藏</dd>
+							</dl>
+							<dl>
+								<dt><img src="img/my_icon_06.png" alt="" /></dt>
+								<dd>草稿箱</dd>
+							</dl>
+					    </div>
+					</div>
+				</section>
+				<footer class="footer">
+					<ul>
+						<li><a href="tuijian.html"><img src="img/pic_list_11.gif" alt=""></a><small class="on">推荐</small></li>
+						<li><a href="find.html"><img src="img/pic_list_13.gif" alt=""></a><small>发现</small></li>
+						<li><a href="city.html"><img src="img/pic_list_15.gif" alt=""></a><small>商店</small></li>
+						<li><a href="talk.html"><img src="img/pic_list_17.gif" alt=""></a><small>讨论</small></li>
+						<li><a href="my.html"><img src="img/pic_list_19.png" alt=""></a><small>我的</small></li>
+					</ul>
+				</footer>			
+			</div>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/iscroll4.js"></script>
+	<script src="js/setfontsize.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script>
+		var menuPage=new iScroll("container",{
+				onBeforeScrollStart:function(e){
+					var tagName=e.target.nodeName.toLowerCase();
+					if(tagName!="input" && tagName!="select" && tagName!="textarea" && tagName!="a"){
+						e.preventDefault();	
+					}		
+				}
+			})
+	</script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"> 
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection"> 
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<title>蛋糕</title>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				<h2>蛋糕</h2>
+				<a class="back" href="#"><i class="fa fa-angle-left"></i></a>
+			</header>
+			<section class="section" style="background: #f7f7f9;" id="container">
+				<div class="cakeList">
+				
+				</div>
+			</section>
+		</div>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/iscroll4.js"></script>
+	<script src="js/iscroll5.js"></script>
+	<script src="js/setfontsize.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/handlebars.js"></script>
+	<script id="moban" type="text/x-handlebars-template">
+		{{#each this.cake_list}}
+			<dl>
+				<dt><img src="{{img}}" alt="" /></dt>
+				<dd>
+					<h2>{{title}}</h2>
+					<p><b>{{price}}</b><span>{{span_price}}</span></p>
+				</dd>
+			</dl>
+		{{/each}}
+	</script>
+	<script>
+	$(function() {
+			
+			$.ajax({
+				url:"cake.json",
+				type:"post",
+				dataType:"json",
+				success:function(data) {
+					console.log(data);
+					var ohtml=$('#moban').html();
+					    moban=Handlebars.compile(ohtml);
+					    $('.cakeList').html(moban(data));
+				},
+				error:function() {
+					alert('错啦');
+				}
+				
+			
+			});
+			
+			var menuPage=new iScroll("container",{
+				onBeforeScrollStart:function(e){
+					var tagName=e.target.nodeName.toLowerCase();
+					if(tagName!="input" && tagName!="select" && tagName!="textarea" && tagName!="a"){
+						e.preventDefault();	
+					}		
+				}
+			})
+	})
+</script>
+	</body>
+</html>

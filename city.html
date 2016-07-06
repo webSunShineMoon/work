@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"> 
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection"> 
+		<meta content="email=no" name="format-detection">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<title>商城</title>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				<a href="#" class="circle"><i class="fa fa-plus-circle"></i></a>
+				<p><input type="text" placeholder="电烤箱" class="dianinput"></p>
+				<a href="#" class="cart"><i class="fa fa-cart-plus"></i></a>
+				<a href="#" class="envelope"><i class="fa fa-envelope-o"></i></a>
+			</header>
+			<section class="section" style="background: #f7f7f9">
+				<div class="banner">
+						<div class="swiper-container" id="swiper-container">
+						    <div class="swiper-wrapper">
+						        <div class="swiper-slide"><img src="img/tu_02.gif" alt="" /></div>
+						        <div class="swiper-slide"><img src="img/tu_02.gif" alt="" /></div>
+						        <div class="swiper-slide"><img src="img/tu_02.gif" alt="" /></div>
+						    </div>
+	    					<!-- 如果需要分页器 -->
+	    					<div class="swiper-pagination"></div>
+					 </div>
+				</div>
+				<div class="tab">
+					<div class="tabnav">
+						<ul>
+							<li><a href="#">糕点</a></li>
+							<li><a href="#">烧烤</a></li>
+							<li><a href="#">烘焙</a></li>
+							<li><a href="#">海鲜</a></li>
+							<li><a href="#">粮油</a></li>
+							<li><a href="#">全部</a></li>
+						</ul>
+					</div>
+					<div class="tu_list">
+						<h2><span></span>    限时秒杀</h2>
+						<div class="show" id="container">
+							<div>
+								<div class="img_tu">
+									<img src="img/img_tu_02.png" alt="" />
+									<img src="img/img_tu_04.png" alt="" />
+								</div>
+								
+								<div class="img_tu" style="display:none">
+									<img src="img/img_tu_02.png" alt="" />
+									<img src="img/img_tu_02.png" alt="" />
+								</div>
+								
+								<div class="img_tu"  style="display:none">
+									<img src="img/img_tu_04.png" alt="" />
+									<img src="img/img_tu_02.png" alt="" />
+								</div>
+								
+								<div class="img_tu"  style="display:none">
+									<img src="img/img_tu_02.png" alt="" />
+									<img src="img/img_tu_04.png" alt="" />
+								</div>
+								
+								<div class="img_tu"  style="display:none">
+									<img src="img/img_tu_04.png" alt="" />
+									<img src="img/img_tu_04.png" alt="" />
+								</div>
+								
+								<div class="img_tu"  style="display:none">
+									<img src="img/img_tu_02.png" alt="" />
+									<img src="img/img_tu_02.png" alt="" />
+								</div>						
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer class="footer">
+				<ul>
+					<li><a href="tuijian.html"><img src="img/pic_list_11.gif" alt=""></a><small class="on">推荐</small></li>
+					<li><a href="find.html"><img src="img/pic_list_13.gif" alt=""></a><small>发现</small></li>
+					<li><a href="city.html"><img src="img/pic_list_15.gif" alt=""></a><small>商店</small></li>
+					<li><a href="talk.html"><img src="img/pic_list_17.gif" alt=""></a><small>讨论</small></li>
+					<li><a href="my.html"><img src="img/pic_list_19.png" alt=""></a><small>我的</small></li>
+				</ul>
+			</footer>
+		</div>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/iscroll4.js"></script>
+	<script src="js/setfontsize.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script>    
+	  var mySwiper = new Swiper ('.swiper-container', {
+		    loop: true,
+		    autoplay: 1000,//可选选项，自动滑动
+		    // 如果需要分页器
+		    pagination: '.swiper-pagination',
+	  })
+	  
+	  var menuPage=new iScroll("container",{
+				onBeforeScrollStart:function(e){
+					var tagName=e.target.nodeName.toLowerCase();
+					if(tagName!="input" && tagName!="select" && tagName!="textarea" && tagName!="a"){
+						e.preventDefault();	
+					}		
+				}
+			})
+	  
+	  function init(){
+	  	$(".tabnav ul li").on("click",function(){
+	  		var index = $(this).index();
+	  		$(".show .img_tu").eq(index).show().siblings().hide();
+	  	})
+	  }
+	  init();
+  </script>
+	</body>
+</html>

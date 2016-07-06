@@ -1,0 +1,34 @@
+{
+	"city_list":[
+					{  
+						"img":"img/shop_03.png",
+						"h2_title":"老北京地道小吃",
+						"span_tle":"260积分"
+					},
+					{  
+						"img":"img/shop_05.png",
+						"h2_title":"老北京地道小吃",
+						"span_tle":"260积分"
+					},
+					{  
+						"img":"img/shop_03.png",
+						"h2_title":"老北京地道小吃",
+						"span_tle":"260积分"
+					},
+					{  
+						"img":"img/shop_03.png",
+						"h2_title":"老北京地道小吃",
+						"span_tle":"260积分"
+					},
+					{  
+						"img":"img/shop_03.png",
+						"h2_title":"老北京地道小吃",
+						"span_tle":"260积分"
+					},
+					{  
+						"img":"img/shop_03.png",
+						"h2_title":"老北京地道小吃",
+						"span_tle":"260积分"
+					}
+				]
+}

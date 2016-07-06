@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"> 
+	    <meta content="yes" name="apple-mobile-web-app-capable">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    <meta content="telephone=no" name="format-detection"> 
+	    <meta content="email=no" name="format-detection">
+	    <link rel="stylesheet" href="css/reset.css">
+	    <link rel="stylesheet" href="css/font-awesome.min.css">
+	    <link rel="stylesheet" href="css/style.css" />
+		<title>推荐</title>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				<a href="#" class="circle"><i class="fa fa-plus-circle"></i></a>
+				<p><input type="text" placeholder="搜索感兴趣的食物"></p>
+				<a href="#" class="envelope"><i class="fa fa-envelope-o"></i></a>
+			</header>
+			<section class="section" id="container">
+				<div class="picBox">
+					
+				</div>
+			</section>
+			<footer class="footer">
+				<ul>
+					<li><a href="tuijian.html"><img src="img/pic_list_11.gif" alt=""></a><small class="on">推荐</small></li>
+					<li><a href="find.html"><img src="img/pic_list_13.gif" alt=""></a><small>发现</small></li>
+					<li><a href="city.html"><img src="img/pic_list_15.gif" alt=""></a><small>商店</small></li>
+					<li><a href="talk.html"><img src="img/pic_list_17.gif" alt=""></a><small>讨论</small></li>
+					<li><a href="my.html"><img src="img/pic_list_19.png" alt=""></a><small>我的</small></li>
+				</ul>
+			</footer>				
+		</div>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/iscroll4.js"></script>
+		<script src="js/index.js"></script>
+		<script>
+			init ();
+			var menuPage=new iScroll("container",{
+				onBeforeScrollStart:function(e){
+					var tagName=e.target.nodeName.toLowerCase();
+					if(tagName!="input" && tagName!="select" && tagName!="textarea" && tagName!="a"){
+						e.preventDefault();	
+					}		
+				}
+			})
+			function init (){
+				var str = "";
+					$.ajax({
+					url:"pic.json",
+					type :"post",
+					dataType :"json",
+					async:true,
+					success:function(data){
+						$.each(data.pic_list,function(i,v){
+							//console.log(v.img_1);
+							str+='<div class="pic">'+
+								 '<img src="'+v.img_1+'">'+
+							'</div>'
+						})
+						$(".picBox").html(str);
+						
+					},
+					error:function(){
+						alert("数据加载失败");
+					}
+
+				})
+			}
+			
+
+	</script>
+	</body>
+</html>
